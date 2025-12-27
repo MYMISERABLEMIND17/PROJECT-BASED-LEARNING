@@ -2,7 +2,7 @@ require('dotenv').config();
 // app.js
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 
 
@@ -11,7 +11,7 @@ app.get('/' , function(req , res) {
     res.send("hello")
 })
 
-// app.use(express.json());
+app.use(express.json());
 app.post('/', (req, res)=>{
     const {name} = req.body;
     res.send(`Welcome ${name}`);
